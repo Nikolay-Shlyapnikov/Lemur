@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+      "outDir": "./dist/",
+      //"noImplicitAny": true,
+      "target": "ES2022",
+      "lib": ["ES2022", "dom"],
+      "module": "CommonJS",
+      "moduleResolution": "node",
+      "declaration": true,
+      "jsx": "react",
+      //"allowJs": true,
+      "rootDir": "src",
+      "sourceMap": true,
+      "forceConsistentCasingInFileNames": true,
+      "strict": true,
+      "esModuleInterop": true,
+//      "plugins": [
+//        {
+//          "name": "typescript-plugin-css-modules"
+//        }
+//      ]
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "dist"]
+}
