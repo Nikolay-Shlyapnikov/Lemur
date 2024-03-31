@@ -1,11 +1,14 @@
 import React from 'react';
-import styles from '../styles/styles.scss'
-import {Header} from "../components/header/header";
+import {Header} from "../widgets/header/header";
+import {LoginForm} from "../widgets/loginForm";
+
 export const MainPage = () => {
     return (
-
-        <div>
+        <>
             <Header/>
-        </div>
+            {/*<ArtTable/>*/}
+            <LoginForm/>
+        </>
     );
 };
+

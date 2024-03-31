@@ -10,10 +10,11 @@
     "author": "Nikolay",
     "license": "ISC",
     "devDependencies": {
-        "axios": "^1.5.1",
         "@reduxjs/toolkit": "^1.9.5",
         "@types/react": "^18.2.22",
         "@types/react-dom": "^18.2.7",
+        "@types/uuid": "^9.0.8",
+        "axios": "^1.5.1",
         "copy-webpack-plugin": "^11.0.0",
         "css-loader": "^6.8.1",
         "css-modules-typescript-loader": "^4.0.1",
@@ -29,8 +30,12 @@
         "webpack-dev-server": "^4.15.1"
     },
     "dependencies": {
+        "@emotion/react": "^11.11.4",
+        "@emotion/styled": "^11.11.0",
+        "@mui/material": "^5.15.12",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-redux": "^8.1.2"
+        "react-redux": "^8.1.2",
+        "uuid": "^9.0.1"
     }
 }

@@ -1,0 +1,91 @@
+@import "src/app/styles/vars";
+
+.hint{
+  &__wrapper{
+    display: inline-flex;
+    position: relative;
+  }
+  &__icon {
+    position: relative;
+    min-width: 20px;
+    max-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &:hover .hint__inner{
+       display: flex;
+    }
+    &--error {
+      background: $lightRed;
+    }
+    &--warning {
+      background: $orange;
+    }
+    &--info {
+      background: $blue;
+    }
+    &--ok {
+      background: $green;
+    }
+    &::before, &::after{
+      background: $white;
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      cursor: pointer;
+    }
+    &::before {
+      height: 7px;
+      width: 2px;
+    }
+    &::after {
+      height: 2px;
+      width: 2px;
+    }
+    &--ok, &--info {
+      &::before {
+        bottom: 5px;
+      }
+    }
+    &--ok, &--info{
+      &::after {
+        top: 5px;
+      }
+    }
+    &--error, &--warning {
+      &::before{
+        top: 5px;
+      }
+    }
+    &--error, &--warning{
+      &::after{
+        bottom: 5px;
+      }
+    }
+  }
+  &__inner {
+    position: absolute;
+    display: none;
+    border-radius: 5px;
+    padding: 5px;
+    left: calc(100% + 10px);
+    border: 1px solid $green;
+    font-family: sans-serif;
+    background: $white;
+    z-index: 3;
+    &::before {
+      position: absolute;
+      content: "";
+      left: -9px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 3px solid transparent;
+      border-right: 5px solid #0f9651;
+    }
+  }
+
+}

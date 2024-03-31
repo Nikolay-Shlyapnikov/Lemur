@@ -4,6 +4,7 @@ interface CssExports {
   'button': string;
   'container': string;
   'd-none': string;
+  'hide': string;
 }
 export const cssExports: CssExports;
 export default cssExports;
