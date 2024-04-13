@@ -6,7 +6,7 @@ export type inputValueType = string | number | Date | Record<string, any> | unde
 
 export type formItemsInterfaces = innerInputTextPropsInterface;
 
-export interface validator {
+export interface validator extends Record<string, any>{
     /**Тип валидатора, обязательный для заполнения, для некоторых типов нужны дополнительные параметры
      *
      * regexp - валидация по регулярному выражению, требует регулярное выражение regexp
@@ -25,7 +25,7 @@ export interface validator {
      * */
     type: 'regexp' | 'required' | 'equals' | "notEquals" | "lengthRange" | 'contain' | 'notContain' | "custom" | "limit"
     /**Функция кастомного валидатора, должна возвращать индекс валидатора в случае провала проверки или undefined*/
-    customValidation?(value: inputValueType): boolean
+    customValidation?(value: inputValueType, validator: validator): boolean
     /**  Значение, на содержание\не содержания которого будет проверяться formItem*/
     containValue?: inputValueType
     /**  Значение, на равенство\неравенство которого будет проверяться formItem*/

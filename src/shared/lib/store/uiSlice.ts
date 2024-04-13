@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {setPropsByKey, setPropsByKeys} from "./utils/setProps";
+import {setPropsByKey, setPropsByKeys, updatePropsByKey} from "./utils/setProps";
 import {tablePropsInterface} from "../../ui/Table/model/types";
 
 export type elementInterfaces = tablePropsInterface
@@ -16,11 +16,14 @@ export const uiSlice = createSlice({
             setPropsByKey(state, action)
         },
         setProperties:(state, action: PayloadAction<{id:string, propsArray: Array<{key: string, value: any}>}>) => {
-            return setPropsByKeys(state, action);
+            setPropsByKeys(state, action);
+        },
+        updateProps: (state, action: PayloadAction<{id: string, key: string, value: any}>) => {
+            updatePropsByKey(state, action);
         }
     }
 })
 
-export const {createElem,setProps, setProperties} = uiSlice.actions
+export const {createElem,updateProps,setProps, setProperties} = uiSlice.actions
 export default uiSlice.reducer
 

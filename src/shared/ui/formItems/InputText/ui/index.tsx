@@ -10,6 +10,11 @@ import {idGeneration} from "../../../../lib/store/utils/idGeneration";
 import {validate} from "../model/api/InputTextUtils";
 import {checkInnerHint, getHintElement} from "../../hint";
 
+import {messageTextürder, optsorder} from "../model/const"
+
+const popka = messageTextürder;
+const popka2 = optsorder;
+
 export const InputText:React.FC<inputTextPropsInterface>= (props) => {
 
     const [id] = useState(idGeneration(defaultInputText.id!));

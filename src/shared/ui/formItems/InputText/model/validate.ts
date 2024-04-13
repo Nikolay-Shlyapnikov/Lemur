@@ -72,7 +72,7 @@ export const validateInputText = (id: string): Array<number> => {
                     break;
                 case "custom":
                     if (validator.customValidation) {
-                        if(!validator.customValidation(value)) {
+                        if(!validator.customValidation(value, validator)) {
                             result.push(index)
                         }
                     } else {
