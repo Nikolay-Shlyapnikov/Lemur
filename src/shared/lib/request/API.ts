@@ -6,16 +6,16 @@ const responseHandler = (
         callBackError?: (error: Record<string, any>) => void
     ) => {
     if (response?.data?.success == false && callBackError) {
-        callBackError(JSON.parse(response.data));
+        callBackError(response.data);
     }
     else if (callBackOk) {
-        callBackOk(JSON.parse(response.data));
+        callBackOk(response.data);
     }
 }
 
 const errorHandler = (error: Record<string, any>, callBackError?: (error: Record<string, any>) => void) => {
     if(callBackError && error && error.data)
-        callBackError(JSON.parse(error.data));
+        callBackError(error.data);
 }
 
 export const fetch = (
