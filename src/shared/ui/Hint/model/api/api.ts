@@ -1,6 +1,6 @@
 import {hintInterface} from "../types";
 import {store} from "../../../../lib/store/store";
-import {setProperties, setProps} from "../../../../lib/store/uiSlice";
+import {setProperties, setProps} from "../../../../lib/store/slices/uiSlice";
 
 
 export const setHintProps = (id: string, key: keyof hintInterface, value: any) => {

@@ -1,22 +1,4 @@
 
-export const messageTextürder: string = "Выберите нужный пункт меню";
-export const optsorder = {
-    reply_markup:
-        JSON.stringify({
-            inline_keyboard: [
-                [{ text: "Сменить пароль", callback_data: 'change_password', }],
-                        [{ text: "Изменить параметры заказа", callback_data: 'change_order' }],
-                        [{ text: "ПАМАГИТЕ", callback_data: 'SOS'}],
-                        [{ text: 'Выйти с админ панели', callback_data: 'exit_admin', }],
-                        [{ text: "Текущий курс: + curs, callback_data: change_curs" }],
-                        [{ text: "Bot created by @Vovuslexx", callback_data: 'author', }]
-                ]
-    })
-};
-
-
-
-
 import {innerInputTextPropsInterface} from './types'
 import styles from '../ui/InputTextStyle.scss'
 import {idGeneration} from "../../../../lib/store/utils/idGeneration";

@@ -1,7 +1,7 @@
 import {store} from "../../../../../lib/store/store";
 import {innerInputTextPropsInterface, inputTextPropsInterface} from "../types";
 import {validateInputText} from "../validate";
-import {setProperties, setProps} from "../../../../../lib/store/uiSlice";
+import {setProperties, setProps} from "../../../../../lib/store/slices/uiSlice";
 
 export const getValue = (id:string) => {
     const input = store.getState().ui[id] as innerInputTextPropsInterface

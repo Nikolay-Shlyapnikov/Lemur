@@ -1,6 +1,6 @@
 
 import {innerInputTextPropsInterface} from "./types";
-import {setProps} from "../../../../lib/store/uiSlice";
+import {setProps} from "../../../../lib/store/slices/uiSlice";
 import {store} from "../../../../lib/store/store";
 
 export const setInputTextValue = (id:string, value:Record<string, any>) =>{

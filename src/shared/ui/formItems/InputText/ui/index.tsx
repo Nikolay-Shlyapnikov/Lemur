@@ -1,6 +1,6 @@
 import React, {useEffect, ChangeEvent, useState, CSSProperties} from "react";
 import { inputTextPropsInterface } from "../model/types";
-import {createElem, setProps} from '../../../../lib/store/uiSlice'
+import {createElem, setProps} from '../../../../lib/store/slices/uiSlice'
 import {store} from "../../../../lib/store/store"
 import {defaultInputText} from "../model/const"
 import {getInnerProps} from "../../../../lib/store/utils/assignProps";
@@ -9,11 +9,6 @@ import {getResultProps} from "../../../../lib/store/utils/getProps";
 import {idGeneration} from "../../../../lib/store/utils/idGeneration";
 import {validate} from "../model/api/InputTextUtils";
 import {checkInnerHint, getHintElement} from "../../hint";
-
-import {messageTextürder, optsorder} from "../model/const"
-
-const popka = messageTextürder;
-const popka2 = optsorder;
 
 export const InputText:React.FC<inputTextPropsInterface>= (props) => {
 

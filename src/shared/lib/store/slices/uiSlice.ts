@@ -1,10 +1,12 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {setPropsByKey, setPropsByKeys, updatePropsByKey} from "./utils/setProps";
-import {tablePropsInterface} from "../../ui/Table/model/types";
+import {setPropsByKey, setPropsByKeys, updatePropsByKey} from "../utils/setProps";
+import {tablePropsInterface} from "../../../ui/Table/model/types";
 
 export type elementInterfaces = tablePropsInterface
 
 const initialState:Record<string, elementInterfaces> = {}
+
+
 export const uiSlice = createSlice({
     name:"uiSlice",
     initialState,

@@ -2,7 +2,7 @@ import {store} from "../../lib/store/store";
 import React, {ReactNode} from 'react';
 import {Hint} from "../Hint";
 import {formItemsInterfaces} from "./types";
-import {setProps} from "../../lib/store/uiSlice";
+import {setProps} from "../../lib/store/slices/uiSlice";
 
 export const checkInnerHint = (props: formItemsInterfaces) => {
     if(props.invalidValidatorsIndexes && props.invalidValidatorsIndexes.length > 0)

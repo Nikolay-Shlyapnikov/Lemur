@@ -1,80 +1,66 @@
-import axios from "axios";
+import axios, {AxiosResponse} from "axios";
+
+const responseHandler = (
+        response: AxiosResponse<any, any>,
+        callBackOk?: (response: Record<string, any>) => void,
+        callBackError?: (error: Record<string, any>) => void
+    ) => {
+    if (response?.data?.success == false && callBackError) {
+        callBackError(JSON.parse(response.data));
+    }
+    else if (callBackOk) {
+        callBackOk(JSON.parse(response.data));
+    }
+}
+
+const errorHandler = (error: Record<string, any>, callBackError?: (error: Record<string, any>) => void) => {
+    if(callBackError && error && error.data)
+        callBackError(JSON.parse(error.data));
+}
 
 export const fetch = (
     method: string,
     url: string,
     config?: {params?: Record<string, any>, headers?: Record<string, any>},
     callBackOk?: (response: Record<string, any>) => void,
-    callBackError?: (error: Record<string, any>) => void,
+    callBackError?: (error: Record<string, any>) => void
 ) => {
     switch (method) {
         case 'post':
             axios.post(url, config?.params, config?.headers)
                 .then(response => {
-                    if (response?.data?.success) {
-                        if(callBackOk)
-                            callBackOk(response.data);
-                    }
-                     else {
-                        if(callBackError)
-                            callBackError(response.data);
-                    }
+                    responseHandler(response, callBackOk, callBackError);
                 })
                 .catch(error => {
-                    if(callBackError)
-                        callBackError(error.data);
-                })
+                    errorHandler(error, callBackError);
+                });
             break;
         case 'get':
             axios.get(url, config)
                 .then(response => {
-                    if (response?.data?.success) {
-                        if(callBackOk)
-                            callBackOk(response.data);
-                    }
-                    else {
-                        if(callBackError)
-                            callBackError(response.data);
-                    }
+                    responseHandler(response, callBackOk, callBackError);
                 })
                 .catch(error => {
-                    if(callBackError)
-                        callBackError(error.data);
-                })
+                    errorHandler(error, callBackError);
+                });
             break;
         case 'update':
             axios.put(url, config?.params, config?.headers)
                 .then(response => {
-                    if (response?.data?.success) {
-                        if(callBackOk)
-                            callBackOk(response.data);
-                    }
-                    else {
-                        if(callBackError)
-                            callBackError(response.data);
-                    }
+                    responseHandler(response, callBackOk, callBackError);
                 })
                 .catch(error => {
-                    if(callBackError)
-                        callBackError(error.data);
-                })
+                    errorHandler(error, callBackError);
+                });
             break;
         case 'delete':
             axios.delete(url, config?.headers)
                 .then(response => {
-                    if (response?.data?.success) {
-                        if(callBackOk)
-                            callBackOk(response.data);
-                    }
-                    else {
-                        if(callBackError)
-                            callBackError(response.data);
-                    }
+                    responseHandler(response, callBackOk, callBackError);
                 })
                 .catch(error => {
-                    if(callBackError)
-                        callBackError(error.data);
-                })
+                    errorHandler(error, callBackError);
+                });
             break;
     }
 }

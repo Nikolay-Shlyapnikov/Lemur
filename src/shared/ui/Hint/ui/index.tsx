@@ -6,7 +6,7 @@ import {defaultHint} from "../model/const";
 import {hintInterface} from "../model/types";
 import {getClassName} from "../../../lib/helpers/getClassName"
 import {store} from "../../../lib/store/store"
-import {createElem} from "../../../lib/store/uiSlice";
+import {createElem} from "../../../lib/store/slices/uiSlice";
 
 export const Hint = (props:hintInterface) => {
 
