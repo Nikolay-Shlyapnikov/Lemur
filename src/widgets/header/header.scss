@@ -1,5 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:focus,
+a:hover {
+  color: inherit;
+  text-decoration: none;
+}
 .header {
   &__navbar{//.header__navbar
     &-item{}//.header__navbar-item
+  }
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px
+  }
+  &__navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    &__menu_item > a {
+      color: rgba(16, 57, 23, 0.7);
+      font-family: 'Gruppo', cursive;
+      font-size: calc(8px + 5*(100vw/1400));
+      position: relative;
+    }
+
+    &__menu_item > a::before {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 100%;
+      width: 0;
+      height: 1px;
+      background-color: black;
+      transition: left 0.7s ease, width 0.7s ease;
+    }
+
+    &__menu_item > a:hover::before {
+      width: 100%;
+      left: 0;
+    }
+    &__menu_item > a:not(:hover)::before {
+      left: 0;
+      width: 0;
+    }
+    &__menu_item > a:hover {
+      color: black
+    }
+  }
+  &__dropdown_catalog {
+    position: absolute;
+    opacity: 0;
+    transform: translateY(50%);
+    width: 100px;
+    top: 20px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    transition: all 0.7s ease;
+  }
+
+  &__navbar__menu_item:hover &__dropdown_catalog {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+
+  &__dropdown_catalog:hover {
+    opacity: 1;
+  }
+
+  &__dropdown_catalog:hover a {
+    pointer-events: auto;
+  }
+
+  &:not(&__navbar__menu_item):hover &__dropdown_catalog {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    &__logo {
+      position: absolute;
+      width: 90px;
+      height: 104px;
+    }
+    &__title {
+      font-family: 'Gruppo', cursive;
+      font-size: calc(10px + 15*(100vw/1400));
+      padding-left: 50px;
+      margin-top: 50px;
+    }
+  }
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
   }
 }
