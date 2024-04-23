@@ -35,15 +35,20 @@ a:hover {
       content: '';
       position: absolute;
       bottom: -3px;
-      left: 0;
+      left: 100%;
       width: 0;
       height: 1px;
       background-color: black;
-      transition: width 0.7s ease;
+      transition: left 0.7s ease, width 0.7s ease;
     }
 
     &__menu_item > a:hover::before {
       width: 100%;
+      left: 0;
+    }
+    &__menu_item > a:not(:hover)::before {
+      left: 0;
+      width: 0;
     }
     &__menu_item > a:hover {
       color: black
@@ -100,5 +105,10 @@ a:hover {
       padding-left: 50px;
       margin-top: 50px;
     }
+  }
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
   }
 }

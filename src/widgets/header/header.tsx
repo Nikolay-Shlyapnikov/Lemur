@@ -7,6 +7,8 @@ import containerClasses from "../../app/styles/styles.scss";
 
 export const Header = () => {
     const props = useSelector((state: RootState) => state.user)
+    // @ts-ignore
+    // @ts-ignore
     return (
         <header className="header">
             <div>
@@ -64,8 +66,38 @@ export const Header = () => {
                             </div>
                         </nav>
                     </div>
-                    <div className="right">
-                        <p>Картинка</p>
+                    <div className={HeaderStyles.header__right}>
+                        <svg width="25" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M23.8125 22.7344C24.0938 22.9844 24.0938 23.25 23.8125 23.5312L22.7812 24.5625C22.5 24.8438 22.2344 24.8438 21.9844 24.5625L16.3125 18.8906C16.1875 18.7656 16.125 18.6406 16.125 18.5156V17.8594C14.2813 19.4531 12.1562 20.25 9.75 20.25C7.0625 20.25 4.76563 19.2969 2.85938 17.3906C0.953125 15.4844 0 13.1875 0 10.5C0 7.8125 0.953125 5.51563 2.85938 3.60938C4.76563 1.70312 7.0625 0.75 9.75 0.75C12.4375 0.75 14.7344 1.70312 16.6406 3.60938C18.5469 5.51563 19.5 7.8125 19.5 10.5C19.5 12.9062 18.7031 15.0313 17.1094 16.875H17.7656C17.9219 16.875 18.0469 16.9375 18.1406 17.0625L23.8125 22.7344ZM4.45312 15.7969C4.45312 15.7969 4.82031 16.1641 5.55469 16.8984C6.28906 17.6328 7.6875 18 9.75 18C11.8125 18 13.5781 17.2656 15.0469 15.7969C16.5156 14.3281 17.25 12.5625 17.25 10.5C17.25 8.4375 16.5156 6.67188 15.0469 5.20312C13.5781 3.73437 11.8125 3 9.75 3C7.6875 3 5.92188 3.73437 4.45312 5.20312C2.98437 6.67188 2.25 8.4375 2.25 10.5C2.25 12.5625 2.98437 14.3281 4.45312 15.7969Z"
+                                fill="#333333"/>
+                        </svg>
+                        <svg width="33" height="33" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"
+                             xmlnsXlink="http://www.w3.org/1999/xlink">
+                            <rect width="64" height="64" fill="url(#pattern0_3_143)"/>
+                            <defs>
+                                <pattern id="pattern0_3_143" patternContentUnits="objectBoundingBox" width="1"
+                                         height="1">
+                                    <use xlinkHref="#image0_3_143" transform="scale(0.015625)"/>
+                                </pattern>
+                                <image id="image0_3_143" width="64" height="64"
+                                       xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC80lEQVR4nO2aPWgUQRSAv41nSBG1EWPEXgQVNKZTLEQ9Imonnj8oFhFLkyNaWCoImnjBKr2/hZW2Yin+HUEtVEwhiUYRLXJR8CeeDLyDYdw79m69vZ3zfTCwzM28eW/nzZs3sweKoiiKoiiKoihKIgRAH3AIOCXFPG+S39qWlUABeAeUqxTz22WghzYiAEaA+RqGu6UE5NvBI7qAGyEGzkr9KDAmz7Mh7a6LDC8JQox/AuwEOkLam7pdQDHkJXjpCSOOIWamF0Xol5FYYfcdxjNWAHOWAcbV62XciQkmiHpDwXH7KDMf5glFx4O8IHC2OrPmGyVryZnxJRZstpR+XyXgRcX0/WDJM8lS6jloKWx2gbjcsuQdwAPylsIX/4G8S77tBsOWwkb5uIxa8obwgNz/vgT6nJQ3bhD8aMnbiIfbYDaGrAFLzrQv2yBypK0oXpSkpl5Mn8mY2WRqUuFCAzKuOKmwd3cEeedAMx7REzKO8WW5NfKOQI6yZWc5ZGschwcctzflqk9r36Ur5CWUJb29KQecMdnq7GhfKdd8vhCpEEhyVKrjSmxO3N7bmQ+jR2Z7pobh0xLtTRBtWwJJaHLWtXhO6tpqxhVF+YtOoB/YDwwCp6UMSl2/tGkr1gPngcfA9whboGnzCDgHrMNTFgPHgRd17P3VynPgWIMHqpZwGJiqYsxv4CVwG5gALkiZkLpX0ias7xu5b0wtq4C7IYqXJJ/fAyyLIMe02StpcFj2eAfoJWXsAL44in6SANcdQ67pe0Zk2bI/A9tJCUeBH5ZyC3IhEsdwlyVynF5wguURWsxJZ82+BbY2cbxtcl6wY8oJWsRu4KelzDNgdQLj9jrfDH8B+0iYDc4/Ph6ImybFUuChNf685BuJkJEvvpXBp1p0fF0OvLb0mJT8o+mctQb9CqyhdawFvln6GN2aSocYnabLyiFnKcT5EBOJpzLYvSQGi4D588V90cno1nS6gS0pu6zslC0yyUCsKIqiKIqC1/wBS7dHkKLZdVsAAAAASUVORK5CYII="/>
+                            </defs>
+                        </svg>
+                        <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
+                             xmlnsXlink="http://www.w3.org/1999/xlink">
+                            <rect width="32" height="32" fill="url(#pattern0_3_144)"/>
+                            <defs>
+                                <pattern id="pattern0_3_144" patternContentUnits="objectBoundingBox" width="1"
+                                         height="1">
+                                    <use xlinkHref="#image0_3_144" transform="scale(0.03125)"/>
+                                </pattern>
+                                <image id="image0_3_144" width="32" height="32"
+                                       xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAABW0lEQVR4nO2WMU4CQRiFX6U2WlBIYo0eADmAeACVBEu8gFxALwAXgAvABaChhMRCGrU2SEWHndJQQf7kbbIxO8z88k+3XzLNzMubN7sz/wyQo+cAQBPAFMCK7RXAI8eicgbgA8DG0d6picIhJ5CJFgDqAI7ZagA+OfYW60s0U5MXMsYLHNvwd5gzpbms3MU9NbInzPmluXxyFyfU/Ow72WjHRvtvE88gjiJMnjTZyF5OKV7+6U9MfGTpluwTby/nFM8MA3yxrxQS4DJ1nq0CJPWjHBKgSvHYMMCEfVchAW4pHsCOIT1vQsQPFPcMA/Tp2dCU3I5hgK6mRD9T3DIM0KbnU4i4pREHolpUN8KNpvqtfc2GCUS1sYcUy3G04k5ztCcUS0Gy4tpR3DJJ3nxSkq2opN6MXuYUy6VkxQU95VLy8k1x0TBA0XHFZ7KO+CARby8vEQOId04O0mwBmKjJw0AtZUsAAAAASUVORK5CYII="/>
+                            </defs>
+                        </svg>
+
+
                     </div>
                 </div>
             </div>
