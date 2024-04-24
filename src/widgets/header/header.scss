@@ -10,14 +10,10 @@ a:hover {
   text-decoration: none;
 }
 .header {
-  &__navbar{//.header__navbar
-    &-item{}//.header__navbar-item
-  }
   &__wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 50px
   }
   &__navbar {
     display: flex;
